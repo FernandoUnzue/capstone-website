@@ -1,4 +1,48 @@
 import { s } from '../css.js';
+import { anchor, useLang, useT } from '../i18n.js';
+
+const TEXT = {
+  es: {
+    strike: "not harder (tachado)",
+    l1: "Datos que se",
+    l2: "convierten en",
+    w1: "decisiones.",
+    w2: "eficiencia.",
+    w3: "resultados.",
+    w4: "decisiones.",
+    lead1: "Tus datos ya saben lo que viene. Nosotros los hacemos hablar.",
+    lead2: "Desarrollamos e implementamos software, plataformas de datos e inteligencia artificial que transforman la información de tu organización.",
+    ctaCases: "Ver casos de éxito",
+    ctaVideos: "Mirá los videos",
+    imgEnerflux: "Plataforma Enerflux",
+    imgAlohar: "App de Alohar",
+    looking: "¿Qué estás buscando?",
+    d1k: "Servicios",
+    d1: "Resolver un desafío con tecnología a medida",
+    d2: "Convertir datos energéticos en decisiones",
+    d3: "Fidelizar clientes, asociados o vecinos",
+  },
+  en: {
+    strike: "not harder (struck through)",
+    l1: "Data that turns",
+    l2: "into",
+    w1: "decisions.",
+    w2: "efficiency.",
+    w3: "results.",
+    w4: "decisions.",
+    lead1: "Your data already knows what’s coming. We make it speak.",
+    lead2: "We build and implement software, data platforms and artificial intelligence that transform your organization’s information.",
+    ctaCases: "See case studies",
+    ctaVideos: "Watch the videos",
+    imgEnerflux: "Enerflux platform",
+    imgAlohar: "Alohar app",
+    looking: "What are you looking for?",
+    d1k: "Services",
+    d1: "Solve a challenge with custom technology",
+    d2: "Turn energy data into decisions",
+    d3: "Build loyalty with customers, members or residents",
+  },
+};
 
 // Mueve el foco de luz del hero siguiendo el cursor (variables CSS --mx/--my).
 function heroMove(e) {
@@ -9,6 +53,8 @@ function heroMove(e) {
 }
 
 export default function Hero() {
+  const lang = useLang();
+  const t = useT(TEXT);
   return (
     <>
       <section id="top" onMouseMove={heroMove} style={s(`background: #081C15; color: #FFFFFF; position: relative; overflow: hidden; padding: 96px 0 0`)}>
@@ -27,16 +73,16 @@ export default function Hero() {
       <div aria-hidden="true" style={s(`position: absolute; left: -120px; bottom: 140px; width: 240px; height: 240px; background: #33CC99; opacity: 0.12; border-radius: 0 100% 0 0`)}></div>
       <div className="wrap hero" style={s(`position: relative`)}>
       <div style={s(`display: flex; flex-direction: column; gap: 30px; padding-bottom: 24px`)}>
-      <div className="mono kick rise d1" style={s(`color: #33CC99`)}>Work smarter,&nbsp;<s className="strike" aria-label="not harder (tachado)">not harder</s></div>
+      <div className="mono kick rise d1" style={s(`color: #33CC99`)}>Work smarter,&nbsp;<s className="strike" aria-label={t.strike}>not harder</s></div>
       <h1 className="disp h-xl" style={s(`font-size: 96px; font-weight: 600; color: #FFFFFF`)}>
-      <span className="clip d2">Datos que se</span>
-      <span className="clip d3">convierten en</span>
-      <span className="clip d4"><span className="words shine" style={s(`color: #33CC99`)}><span>decisiones.</span><span aria-hidden="true">eficiencia.</span><span aria-hidden="true">resultados.</span><span aria-hidden="true">decisiones.</span></span></span>
+      <span className="clip d2">{t.l1}</span>
+      <span className="clip d3">{t.l2}</span>
+      <span className="clip d4"><span className="words shine" style={s(`color: #33CC99`)}><span>{t.w1}</span><span aria-hidden="true">{t.w2}</span><span aria-hidden="true">{t.w3}</span><span aria-hidden="true">{t.w4}</span></span></span>
       </h1>
-      <p className="rise d5" style={s(`margin: 0; font-size: 20px; line-height: 1.6; color: #C9D2D0; max-width: 560px`)}><strong style={s(`color: #FFFFFF; font-weight: 600`)}>Tus datos ya saben lo que viene. Nosotros los hacemos hablar.</strong><br />Desarrollamos e implementamos software, plataformas de datos e inteligencia artificial que transforman la información de tu organización.</p>
+      <p className="rise d5" style={s(`margin: 0; font-size: 20px; line-height: 1.6; color: #C9D2D0; max-width: 560px`)}><strong style={s(`color: #FFFFFF; font-weight: 600`)}>{t.lead1}</strong><br />{t.lead2}</p>
       <div className="rise d6" style={s(`display: flex; gap: 14px; flex-wrap: wrap; align-items: center`)}>
-      <a href="/#casos" className="btn btn-g glow-b" style={s(`text-decoration: none; background: #33CC99; color: #081C15; font-weight: 600; padding: 18px 30px; border-radius: 999px; font-size: 16px`)}>Ver casos de éxito</a>
-      <a href="/#videos" className="btn" style={s(`text-decoration: none; color: #FFFFFF; font-weight: 500; padding: 17px 24px; display: flex; align-items: center; gap: 12px`)}><span style={s(`width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center`)}><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>Mirá los videos</a>
+      <a href={anchor(lang, 'casos')} className="btn btn-g glow-b" style={s(`text-decoration: none; background: #33CC99; color: #081C15; font-weight: 600; padding: 18px 30px; border-radius: 999px; font-size: 16px`)}>{t.ctaCases}</a>
+      <a href={anchor(lang, 'videos')} className="btn" style={s(`text-decoration: none; color: #FFFFFF; font-weight: 500; padding: 17px 24px; display: flex; align-items: center; gap: 12px`)}><span style={s(`width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center`)}><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>{t.ctaVideos}</a>
       </div>
       </div>
       {/* composición de dispositivos */}
@@ -44,27 +90,27 @@ export default function Hero() {
       <div aria-hidden="true" className="orbit" style={s(`position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 50%; border: 1px dashed rgba(51,204,153,0.25)`)}><span style={s(`position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: #33CC99; box-shadow: 0 0 18px #33CC99`)}></span></div>
       <div className="browser fl-a" style={s(`position: absolute; right: -10px; top: 40px; width: 560px; border-radius: 14px; overflow: hidden; background: #0B1F18; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 40px 90px rgba(0,0,0,0.55); transform: rotateY(-10deg) rotateX(4deg)`)}>
       <div style={s(`height: 34px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #10261E; border-bottom: 1px solid rgba(255,255,255,0.08)`)}><span style={s(`width: 10px; height: 10px; border-radius: 50%; background: #FF5F57`)}></span><span style={s(`width: 10px; height: 10px; border-radius: 50%; background: #FEBC2E`)}></span><span style={s(`width: 10px; height: 10px; border-radius: 50%; background: #28C840`)}></span><span style={s(`margin-left: 14px; flex: 1; height: 20px; border-radius: 6px; background: rgba(255,255,255,0.06); color: #A7B3B1; font-size: 11px; display: flex; align-items: center; padding: 0 10px; font-family: Rubik, sans-serif`)}>enerflux.com.ar</span></div>
-      <img src="/assets/img/plataforma-enerflux.jpg" alt="Plataforma Enerflux" style={s(`display: block; width: 100%; height: auto`)} />
+      <img src="/assets/img/plataforma-enerflux.jpg" alt={t.imgEnerflux} style={s(`display: block; width: 100%; height: auto`)} />
       </div>
       <div className="phone fl-b" style={s(`position: absolute; left: 10px; top: 150px; width: 200px; height: 400px; border-radius: 36px; background: #050807; padding: 9px; box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.12)`)}>
-      <div style={s(`position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden`)}><img src="/assets/img/app-de-alohar.jpg" alt="App de Alohar" style={s(`width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block`)} /><span style={s(`position: absolute; top: 8px; left: 50%; width: 64px; height: 18px; margin-left: -32px; border-radius: 10px; background: #050807`)}></span></div>
+      <div style={s(`position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden`)}><img src="/assets/img/app-de-alohar.jpg" alt={t.imgAlohar} style={s(`width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block`)} /><span style={s(`position: absolute; top: 8px; left: 50%; width: 64px; height: 18px; margin-left: -32px; border-radius: 10px; background: #050807`)}></span></div>
       </div>
       </div>
       </div>
       {/* 3 caminos */}
       <div className="wrap" style={s(`position: relative; margin-top: 56px`)}>
-      <div className="mono rise d6" style={s(`color: #7D8B88; font-size: 11px; padding-bottom: 14px`)}>¿Qué estás buscando?</div>
+      <div className="mono rise d6" style={s(`color: #7D8B88; font-size: 11px; padding-bottom: 14px`)}>{t.looking}</div>
       <div className="g3 rise d6" style={s(`gap: 0; border-top: 1px solid rgba(255,255,255,0.14)`)}>
-      <a href="/#que-hacemos" className="door" style={s(`text-decoration: none; color: #FFFFFF; padding: 28px 24px 34px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(255,255,255,0.14)`)}>
-      <span style={s(`display: flex; flex-direction: column; gap: 8px`)}><span className="mono" style={s(`color: #33CC99; font-size: 11px`)}>Servicios</span><span style={s(`font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2`)}>Resolver un desafío con tecnología a medida</span></span>
+      <a href={anchor(lang, 'que-hacemos')} className="door" style={s(`text-decoration: none; color: #FFFFFF; padding: 28px 24px 34px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(255,255,255,0.14)`)}>
+      <span style={s(`display: flex; flex-direction: column; gap: 8px`)}><span className="mono" style={s(`color: #33CC99; font-size: 11px`)}>{t.d1k}</span><span style={s(`font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2`)}>{t.d1}</span></span>
       <svg className="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#33CC99" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
       </a>
-      <a href="/#enerflux" className="door" style={s(`text-decoration: none; color: #FFFFFF; padding: 28px 24px 34px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(255,255,255,0.14)`)}>
-      <span style={s(`display: flex; flex-direction: column; gap: 8px`)}><span className="mono" style={s(`color: #FFB25C; font-size: 11px`)}>Enerflux</span><span style={s(`font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2`)}>Convertir datos energéticos en decisiones</span></span>
+      <a href={anchor(lang, 'enerflux')} className="door" style={s(`text-decoration: none; color: #FFFFFF; padding: 28px 24px 34px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(255,255,255,0.14)`)}>
+      <span style={s(`display: flex; flex-direction: column; gap: 8px`)}><span className="mono" style={s(`color: #FFB25C; font-size: 11px`)}>Enerflux</span><span style={s(`font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2`)}>{t.d2}</span></span>
       <svg className="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB25C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
       </a>
-      <a href="/#fidelyflux" className="door" style={s(`text-decoration: none; color: #FFFFFF; padding: 28px 0 34px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px`)}>
-      <span style={s(`display: flex; flex-direction: column; gap: 8px`)}><span className="mono" style={s(`color: #E3B260; font-size: 11px`)}>FidelyFlux</span><span style={s(`font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2`)}>Fidelizar clientes, asociados o vecinos</span></span>
+      <a href={anchor(lang, 'fidelyflux')} className="door" style={s(`text-decoration: none; color: #FFFFFF; padding: 28px 0 34px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px`)}>
+      <span style={s(`display: flex; flex-direction: column; gap: 8px`)}><span className="mono" style={s(`color: #E3B260; font-size: 11px`)}>FidelyFlux</span><span style={s(`font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2`)}>{t.d3}</span></span>
       <svg className="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3B260" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
       </a>
       </div>

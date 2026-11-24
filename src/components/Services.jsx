@@ -1,10 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
 import { s } from '../css.js';
-import { SERVICES } from '../data.js';
+import { anchor, content, useLang, useT } from '../i18n.js';
+
+const TEXT = {
+  es: {
+    kick: 'Qué hacemos', h2a: 'Hacemos que la tecnología sea ', h2b: 'fácil.',
+    lead: 'Combinamos datos, inteligencia artificial y desarrollo a medida para que veas lo que hoy está oculto en tu organización: riesgos, ahorros y nuevas fuentes de ingresos.',
+    st1: ['años de experiencia', 'internacional'], st2: ['continentes con', 'proyectos'], st3: ['tiempo de', 'respuesta'],
+  },
+  en: {
+    kick: 'What we do', h2a: 'We make technology ', h2b: 'easy.',
+    lead: 'We combine data, artificial intelligence and custom development so you can see what is hidden in your organization today: risks, savings and new revenue streams.',
+    st1: ['years of international', 'experience'], st2: ['continents with', 'projects'], st3: ['response', 'time'],
+  },
+};
 
 // Contadores animados. El HTML prerenderizado muestra el valor final (lo que leen los buscadores);
 // en el navegador se reinician y cuentan al entrar en pantalla.
 function Stats() {
+  const t = useT(TEXT);
   const ref = useRef(null);
   const [p, setP] = useState(1);
   useEffect(() => {
@@ -37,14 +51,16 @@ function Stats() {
   const small = s('font-size: 14px; color: #586462; margin-top: 6px');
   return (
     <div className="reveal" ref={ref} style={s('display: flex; gap: 40px; padding-top: 10px')}>
-      <div><div className="disp" style={big}>+{n(15)}</div><div style={small}>años de experiencia<br />internacional</div></div>
-      <div><div className="disp" style={big}>{n(3)}</div><div style={small}>continentes con<br />proyectos</div></div>
-      <div><div className="disp" style={big}>{n(24)}h</div><div style={small}>tiempo de<br />respuesta</div></div>
+      <div><div className="disp" style={big}>+{n(15)}</div><div style={small}>{t.st1[0]}<br />{t.st1[1]}</div></div>
+      <div><div className="disp" style={big}>{n(3)}</div><div style={small}>{t.st2[0]}<br />{t.st2[1]}</div></div>
+      <div><div className="disp" style={big}>{n(24)}h</div><div style={small}>{t.st3[0]}<br />{t.st3[1]}</div></div>
     </div>
   );
 }
 
 function ServiceList() {
+  const lang = useLang();
+  const { SERVICES } = content(lang);
   const [open, setOpen] = useState(0);
   return SERVICES.map((sv, i) => {
     const on = open === i;
@@ -63,7 +79,7 @@ function ServiceList() {
           <ul style={s('display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0')}>
             {sv.items.map((it) => <li key={it} className="mono" style={s('font-size: 11px; background: #ECFBF4; color: #136F54; border-radius: 999px; padding: 8px 14px')}>{it}</li>)}
           </ul>
-          <a href="/#casos" style={s('font-weight: 500; font-size: 15px; align-self: flex-start')}>{sv.cta} →</a>
+          <a href={anchor(lang, 'casos')} style={s('font-weight: 500; font-size: 15px; align-self: flex-start')}>{sv.cta} →</a>
         </div>
       </div>
     );
@@ -71,17 +87,18 @@ function ServiceList() {
 }
 
 export default function Services() {
+  const t = useT(TEXT);
   return (
     <>
       <section id="que-hacemos" style={s(`padding: 140px 0 130px; position: relative`)}>
       <div className="wrap" style={s(`display: flex; flex-direction: column; gap: 64px`)}>
       <div className="svc-head" style={s(`display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px; align-items: end`)}>
       <div style={s(`display: flex; flex-direction: column; gap: 26px`)}>
-      <div className="mono kick reveal" style={s(`color: #178F6B`)}>Qué hacemos</div>
-      <h2 className="disp h-l reveal" style={s(`font-size: 64px; font-weight: 600`)}>Hacemos que la tecnología sea <em>fácil.</em></h2>
+      <div className="mono kick reveal" style={s(`color: #178F6B`)}>{t.kick}</div>
+      <h2 className="disp h-l reveal" style={s(`font-size: 64px; font-weight: 600`)}>{t.h2a}<em>{t.h2b}</em></h2>
       </div>
       <div style={s(`display: flex; flex-direction: column; gap: 28px`)}>
-      <p className="reveal" style={s(`margin: 0; font-size: 18px; line-height: 1.65; color: #3D4847; max-width: 440px`)}>Combinamos datos, inteligencia artificial y desarrollo a medida para que veas lo que hoy está oculto en tu organización: riesgos, ahorros y nuevas fuentes de ingresos.</p>
+      <p className="reveal" style={s(`margin: 0; font-size: 18px; line-height: 1.65; color: #3D4847; max-width: 440px`)}>{t.lead}</p>
       <Stats />
       </div>
       </div>

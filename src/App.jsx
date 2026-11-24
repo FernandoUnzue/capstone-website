@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { s } from './css.js';
-import { VIDEOS } from './data.js';
-import { caseKeyFromPath, getMeta, ROUTES } from './seo.js';
+import { anchor, content, LangContext } from './i18n.js';
+import { getMeta, parsePath, ROUTES } from './seo.js';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Clients from './components/Clients.jsx';
@@ -29,7 +29,8 @@ export default function App({ initialPath = '/' }) {
   const [path, setPath] = useState(norm(initialPath));
   const [lb, setLb] = useState(-1); // índice del video abierto en el lightbox
   const pendingHash = useRef(null);
-  const caseKey = caseKeyFromPath(path);
+  const { lang, caseKey } = parsePath(path);
+  const { VIDEOS } = content(lang);
 
   const navigate = useCallback((href) => {
     const url = new URL(href, window.location.href);
@@ -72,6 +73,7 @@ export default function App({ initialPath = '/' }) {
   useEffect(() => {
     const m = getMeta(path);
     document.title = m.title;
+    document.documentElement.lang = m.lang;
     document.querySelector('meta[name="description"]')?.setAttribute('content', m.description);
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', m.url);
     if (pendingHash.current !== null) {
@@ -85,22 +87,23 @@ export default function App({ initialPath = '/' }) {
     const onKey = (e) => {
       if (e.key !== 'Escape') return;
       if (lb >= 0) setLb(-1);
-      else if (caseKey) navigate('/#casos');
+      else if (caseKey) navigate(anchor(lang, 'casos'));
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [lb, caseKey, navigate]);
+  }, [lb, caseKey, lang, navigate]);
 
   return (
+    <LangContext.Provider value={lang}>
     <div style={s('width: 100%; font-family: Rubik, system-ui, sans-serif; color: #081C15; background: #FFFFFF; overflow-x: clip')}>
       <div className="progress" aria-hidden="true"></div>
       {caseKey ? (
         <main>
-          <CaseStudy caseKey={caseKey} openVideo={setLb} />
+          <CaseStudy key={path} caseKey={caseKey} path={path} openVideo={setLb} />
         </main>
       ) : (
-        <>
-          <Header />
+        <Fragment key={lang}>
+          <Header path={path} />
           <main>
             <Hero />
             <Clients />
@@ -113,10 +116,11 @@ export default function App({ initialPath = '/' }) {
             <Team />
             <Contact />
           </main>
-        </>
+        </Fragment>
       )}
       {lb >= 0 && <Lightbox video={VIDEOS[lb]} onClose={() => setLb(-1)} />}
       <Footer />
     </div>
+    </LangContext.Provider>
   );
 }

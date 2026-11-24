@@ -29,6 +29,20 @@ scripts/prerender.mjs      genera las páginas HTML, sitemap.xml, robots.txt, ll
 public/assets/             imágenes y video
 ```
 
+## Idiomas (español e inglés)
+
+| Página | Español | Inglés |
+|---|---|---|
+| Inicio | `/` | `/en` |
+| Caso | `/casos/<slug>` | `/en/cases/<slug>` |
+
+- Contenido (servicios, casos, videos): `src/data.js` (es) y `src/data.en.js` (en), con la misma estructura. **Al cambiar uno, actualizar el otro.**
+- Textos de la interfaz: cada componente tiene su diccionario `TEXT = { es: {…}, en: {…} }`.
+- `src/i18n.js`: contexto de idioma (`useLang`, `useT`), `content(lang)` y `anchor(lang, id)` para enlaces a secciones.
+- El selector ES/EN lleva a la página equivalente en el otro idioma.
+- SEO por idioma: `<html lang>`, `hreflang` (es, en, x-default) en cada página y en el sitemap, `og:locale`, JSON-LD con `inLanguage`, y `llms.txt` / `llms-full.txt` en `/` (es) y `/en/` (en).
+- Los mails del formulario en inglés llegan con `[EN]` en el asunto.
+
 ## SEO e indexación
 
 - Cada ruta se entrega como **HTML completo** (los crawlers de IA no ejecutan JavaScript).

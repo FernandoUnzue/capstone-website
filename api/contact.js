@@ -79,13 +79,16 @@ export default async function handler(req, res) {
   const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '').split(',')[0].trim();
   if (rateLimited(ip)) return send(res, 429, { ok: false, error: 'Demasiados envíos seguidos. Esperá unos minutos.' });
 
-  const subject = `Contacto web · ${interest} · ${name}`;
-  const text = `Nombre: ${name}\nEmail: ${email}\nInterés: ${interest}\nPágina: ${page}\n\n${message}\n`;
+  const en = body.lang === 'en';
+  const idioma = en ? 'Inglés' : 'Español';
+  const subject = `Contacto web${en ? ' [EN]' : ''} · ${interest} · ${name}`;
+  const text = `Nombre: ${name}\nEmail: ${email}\nInterés: ${interest}\nIdioma: ${idioma}\nPágina: ${page}\n\n${message}\n`;
   const html = `<h2 style="font-family:sans-serif">Nuevo contacto desde la web</h2>
 <table style="font-family:sans-serif;font-size:14px" cellpadding="4">
 <tr><td><b>Nombre</b></td><td>${escapeHtml(name)}</td></tr>
 <tr><td><b>Email</b></td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
 <tr><td><b>Interés</b></td><td>${escapeHtml(interest)}</td></tr>
+<tr><td><b>Idioma</b></td><td>${idioma}</td></tr>
 <tr><td><b>Página</b></td><td>${escapeHtml(page)}</td></tr>
 </table>
 <p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap">${escapeHtml(message)}</p>`;

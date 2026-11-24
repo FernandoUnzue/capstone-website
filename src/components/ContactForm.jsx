@@ -1,21 +1,39 @@
 import { useState } from 'react';
 import { s } from '../css.js';
+import { useLang, useT } from '../i18n.js';
 
+// El valor que se envía al servidor es siempre el de INTERESTS (en español); el texto visible se traduce.
 const INTERESTS = ['Proyecto a medida', 'Enerflux', 'FidelyFlux', 'Otro'];
+const TEXT = {
+  es: {
+    interests: INTERESTS, name: 'Nombre', email: 'Email', company: 'Empresa', interested: 'Me interesa', message: 'Mensaje',
+    errName: 'Ingresá tu nombre.', errEmail: 'Ingresá un email válido.', errMsg: 'Contanos un poco más (mínimo 10 caracteres).',
+    send: 'Enviar mensaje →', sending: 'Enviando…', sent: '¡Gracias! Te respondemos en menos de 24 h', sentMsg: 'Recibimos tu mensaje. Te escribimos a la brevedad.',
+    fail: 'No pudimos enviar el mensaje.', retry: 'Probá de nuevo o escribinos a',
+  },
+  en: {
+    interests: ['Custom project', 'Enerflux', 'FidelyFlux', 'Other'], name: 'Name', email: 'Email', company: 'Company', interested: 'I’m interested in', message: 'Message',
+    errName: 'Please enter your name.', errEmail: 'Please enter a valid email.', errMsg: 'Tell us a bit more (at least 10 characters).',
+    send: 'Send message →', sending: 'Sending…', sent: 'Thanks! We’ll reply within 24 hours', sentMsg: 'We received your message and will be in touch shortly.',
+    fail: 'We couldn’t send your message.', retry: 'Please try again or email us at',
+  },
+};
 const LABEL = s('display: flex; flex-direction: column; gap: 10px; font-size: 10px; color: #A7B3B1');
 const FIELD = 'font: 400 17px Rubik, sans-serif; color: #FFFFFF; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding: 10px 0; min-height: 44px; text-transform: none; letter-spacing: normal';
 const FIELD_ERR = FIELD + '; border-bottom-color: #FF8A78';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-function validate(v) {
+function validate(v, t) {
   const e = {};
-  if (v.name.trim().length < 2) e.name = 'Ingresá tu nombre.';
-  if (!EMAIL_RE.test(v.email.trim())) e.email = 'Ingresá un email válido.';
-  if (v.message.trim().length < 10) e.message = 'Contanos un poco más (mínimo 10 caracteres).';
+  if (v.name.trim().length < 2) e.name = t.errName;
+  if (!EMAIL_RE.test(v.email.trim())) e.email = t.errEmail;
+  if (v.message.trim().length < 10) e.message = t.errMsg;
   return e;
 }
 
 export default function ContactForm() {
+  const lang = useLang();
+  const t = useT(TEXT);
   const [values, setValues] = useState({ name: '', email: '', message: '', company: '' });
   const [interest, setInterest] = useState(0);
   const [errors, setErrors] = useState({});
@@ -29,7 +47,7 @@ export default function ContactForm() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const er = validate(values);
+    const er = validate(values, t);
     setErrors(er);
     if (Object.keys(er).length) {
       e.currentTarget.querySelector('[aria-invalid="true"]')?.focus();
@@ -41,15 +59,15 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...values, interest: INTERESTS[interest], page: window.location.href }),
+        body: JSON.stringify({ ...values, interest: INTERESTS[interest], lang, page: window.location.href }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.ok) throw new Error(data.error || 'No pudimos enviar el mensaje.');
+      if (!res.ok || !data.ok) throw new Error(lang === 'es' && data.error ? data.error : t.fail);
       setStatus('sent');
       setValues({ name: '', email: '', message: '', company: '' });
     } catch (err) {
       setStatus('error');
-      setServerError(err.message || 'No pudimos enviar el mensaje.');
+      setServerError(lang === 'es' && err.message ? err.message : t.fail);
     }
   }
 
@@ -59,42 +77,42 @@ export default function ContactForm() {
     <form className="reveal" onSubmit={onSubmit} noValidate aria-describedby="form-status" style={s('background: #081C15; color: #FFFFFF; border-radius: 0 48px 48px 48px; padding: 44px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 40px 80px rgba(8,28,21,0.35)')}>
       <div className="g2" style={s('gap: 20px')}>
         <label className="mono" style={LABEL}>
-          Nombre
+          {t.name}
           <input type="text" name="name" autoComplete="name" required value={values.name} onChange={set('name')} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'err-name' : undefined} style={s(errors.name ? FIELD_ERR : FIELD)} />
           {errors.name && <span id="err-name" className="form-msg form-err">{errors.name}</span>}
         </label>
         <label className="mono" style={LABEL}>
-          Email
+          {t.email}
           <input type="email" name="email" autoComplete="email" required value={values.email} onChange={set('email')} aria-invalid={!!errors.email} aria-describedby={errors.email ? 'err-email' : undefined} style={s(errors.email ? FIELD_ERR : FIELD)} />
           {errors.email && <span id="err-email" className="form-msg form-err">{errors.email}</span>}
         </label>
       </div>
       {/* Honeypot antispam: invisible para personas, los bots lo completan. */}
       <label className="hp" aria-hidden="true">
-        Empresa
+        {t.company}
         <input type="text" name="company" tabIndex={-1} autoComplete="off" value={values.company} onChange={set('company')} />
       </label>
       <fieldset style={s('border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px')}>
-        <legend className="mono" style={s('font-size: 10px; color: #A7B3B1; padding: 0; margin-bottom: 12px')}>Me interesa</legend>
+        <legend className="mono" style={s('font-size: 10px; color: #A7B3B1; padding: 0; margin-bottom: 12px')}>{t.interested}</legend>
         <div style={s('display: flex; flex-wrap: wrap; gap: 8px')}>
-          {INTERESTS.map((l, i) => (
+          {t.interests.map((l, i) => (
             <button key={l} type="button" onClick={() => setInterest(i)} aria-pressed={interest === i} style={s('font:500 14px Rubik,sans-serif;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer;transition:background 200ms,color 200ms;' + (interest === i ? 'background:#33CC99;color:#081C15;border:1px solid #33CC99' : 'background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,0.3)'))}>{l}</button>
           ))}
         </div>
       </fieldset>
       <label className="mono" style={LABEL}>
-        Mensaje
+        {t.message}
         <textarea name="message" rows="3" required value={values.message} onChange={set('message')} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'err-message' : undefined} style={s((errors.message ? FIELD_ERR : FIELD) + '; resize: vertical')}></textarea>
         {errors.message && <span id="err-message" className="form-msg form-err">{errors.message}</span>}
       </label>
       <button type="submit" className="btn btn-g" disabled={sending || status === 'sent'} style={s('font: 600 17px Rubik, sans-serif; background: #33CC99; color: #081C15; border: none; border-radius: 999px; padding: 18px; min-height: 52px; cursor: pointer; margin-top: 6px' + (sending ? '; opacity: 0.7; cursor: wait' : ''))}>
-        {sending ? 'Enviando…' : status === 'sent' ? '¡Gracias! Te respondemos en menos de 24 h' : 'Enviar mensaje →'}
+        {sending ? t.sending : status === 'sent' ? t.sent : t.send}
       </button>
       <div id="form-status" role="status" aria-live="polite">
-        {status === 'sent' && <p className="form-msg" style={s('color: #33CC99')}>Recibimos tu mensaje. Te escribimos a la brevedad.</p>}
+        {status === 'sent' && <p className="form-msg" style={s('color: #33CC99')}>{t.sentMsg}</p>}
         {status === 'error' && (
           <p className="form-msg form-err">
-            {serverError} Probá de nuevo o escribinos a <a href="mailto:hi@capstoneside.com" style={s('color: #FFFFFF')}>hi@capstoneside.com</a>.
+            {serverError} {t.retry} <a href="mailto:hi@capstoneside.com" style={s('color: #FFFFFF')}>hi@capstoneside.com</a>.
           </p>
         )}
       </div>

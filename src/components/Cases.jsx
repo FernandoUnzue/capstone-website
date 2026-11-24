@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import { s } from '../css.js';
-import { CASES } from '../data.js';
+import { content, useLang, useT } from '../i18n.js';
 import { casePath } from '../seo.js';
 
-const FILTERS = ['Todos', 'Energía', 'Fidelización', 'Software', 'Transformación'];
+const TEXT = {
+  es: { filters: ['Todos', 'Energía', 'Fidelización', 'Software', 'Transformación'], kick: 'Portfolio', h2a: 'De Argentina ', h2b: 'al mundo.', filterAria: 'Filtrar casos', full: 'Ver caso completo →', fullAria: 'Ver caso completo: ' },
+  en: { filters: ['All', 'Energy', 'Loyalty', 'Software', 'Transformation'], kick: 'Portfolio', h2a: 'From Argentina ', h2b: 'to the world.', filterAria: 'Filter case studies', full: 'Read the full case study →', fullAria: 'Read the full case study: ' },
+};
 
 export default function Cases() {
-  const [filter, setFilter] = useState('Todos');
-  const list = CASES.filter((c) => filter === 'Todos' || c.cat === filter);
+  const lang = useLang();
+  const t = useT(TEXT);
+  const { CASES } = content(lang);
+  const all = t.filters[0];
+  const [filter, setFilter] = useState(all);
+  const list = CASES.filter((c) => filter === all || c.cat === filter);
   const k = list.length > 2 ? (3 - (list.length % 3)) % 3 : 0; // las primeras k tarjetas ocupan 2 columnas
   return (
     <>
@@ -15,11 +22,11 @@ export default function Cases() {
       <div className="wrap" style={s(`display: flex; flex-direction: column; gap: 48px`)}>
       <div style={s(`display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap`)}>
       <div style={s(`display: flex; flex-direction: column; gap: 24px; max-width: 760px`)}>
-      <div className="mono kick reveal" style={s(`color: #178F6B`)}>Portfolio</div>
-      <h2 className="disp h-l reveal" style={s(`font-size: 64px; font-weight: 600`)}>De Argentina <span className="thin">al mundo.</span></h2>
+      <div className="mono kick reveal" style={s(`color: #178F6B`)}>{t.kick}</div>
+      <h2 className="disp h-l reveal" style={s(`font-size: 64px; font-weight: 600`)}>{t.h2a}<span className="thin">{t.h2b}</span></h2>
       </div>
-      <div role="group" aria-label="Filtrar casos" className="reveal" style={s(`display: flex; gap: 6px; flex-wrap: wrap; background: #FFFFFF; padding: 6px; border-radius: 999px`)}>
-      {FILTERS.map((f) => (
+      <div role="group" aria-label={t.filterAria} className="reveal" style={s(`display: flex; gap: 6px; flex-wrap: wrap; background: #FFFFFF; padding: 6px; border-radius: 999px`)}>
+      {t.filters.map((f) => (
         <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)} style={s('font:500 14px Rubik,sans-serif;border:none;border-radius:999px;padding:10px 18px;min-height:44px;cursor:pointer;transition:background 220ms,color 220ms;' + (filter === f ? 'background:#081C15;color:#FFFFFF' : 'background:transparent;color:#081C15'))}>{f}</button>
       ))}
       </div>
@@ -39,7 +46,7 @@ export default function Cases() {
               <span className="mono" style={s('font-size: 10px; color: #178F6B')}>{c.kind}</span>
               <h3 className="disp" style={s('font-size: 30px; font-weight: 600')}>{c.client}</h3>
               <p style={s('margin: 0; font-size: 15px; color: #3D4847; line-height: 1.55')}>{c.text}</p>
-              <a href={casePath(c.detail)} aria-label={'Ver caso completo: ' + c.client} style={s('margin-top: auto; padding: 10px 0 0; align-self: flex-start; color: #081C15; font: 500 14px Rubik, sans-serif; text-decoration: none')}>Ver caso completo →</a>
+              <a href={casePath(c.detail, lang)} aria-label={t.fullAria + c.client} style={s('margin-top: auto; padding: 10px 0 0; align-self: flex-start; color: #081C15; font: 500 14px Rubik, sans-serif; text-decoration: none')}>{t.full}</a>
             </div>
           </article>
         );

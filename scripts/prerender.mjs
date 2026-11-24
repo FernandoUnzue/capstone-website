@@ -8,7 +8,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const ssrDir = path.join(root, 'dist-ssr');
 
-const { render, ROUTES, SITE_URL, llmsTxt } = await import(pathToFileURL(path.join(ssrDir, 'entry-server.js')).href);
+const { render, ROUTES, SITE_URL, LANGS, pathIn, llmsTxt } = await import(pathToFileURL(path.join(ssrDir, 'entry-server.js')).href);
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 
 const write = (rel, content) => {
@@ -19,8 +19,8 @@ const write = (rel, content) => {
 };
 
 for (const route of ROUTES) {
-  const { html, head } = render(route);
-  const page = template.replace('<!--app-head-->', head).replace('<!--app-html-->', html);
+  const { html, head, lang } = render(route);
+  const page = template.replace('<html lang="es">', `<html lang="${lang}">`).replace('<!--app-head-->', head).replace('<!--app-html-->', html);
   write(route === '/' ? 'index.html' : route.slice(1) + '.html', page);
 }
 
@@ -37,8 +37,14 @@ const today = new Date().toISOString().slice(0, 10);
 write(
   'sitemap.xml',
   `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${ROUTES.map((r) => `  <url><loc>${SITE_URL}${r}</loc><lastmod>${today}</lastmod><changefreq>${r === '/' ? 'weekly' : 'monthly'}</changefreq><priority>${r === '/' ? '1.0' : '0.8'}</priority></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${ROUTES.map((r) => {
+  const home = r === '/' || r === '/en';
+  const alts = [...LANGS.map((l) => [l, pathIn(r, l)]), ['x-default', pathIn(r, 'es')]]
+    .map(([l, p]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${p}"/>`)
+    .join('\n');
+  return `  <url>\n    <loc>${SITE_URL}${r}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>${home ? 'weekly' : 'monthly'}</changefreq>\n    <priority>${home ? '1.0' : '0.8'}</priority>\n  </url>`;
+}).join('\n')}
 </urlset>
 `
 );
@@ -62,8 +68,10 @@ Sitemap: ${SITE_URL}/sitemap.xml
 `
 );
 
-write('llms.txt', llmsTxt(false));
-write('llms-full.txt', llmsTxt(true));
+write('llms.txt', llmsTxt('es', false));
+write('llms-full.txt', llmsTxt('es', true));
+write('en/llms.txt', llmsTxt('en', false));
+write('en/llms-full.txt', llmsTxt('en', true));
 
 fs.rmSync(ssrDir, { recursive: true, force: true });
 console.log(`Prerender listo: ${ROUTES.length} páginas · ${SITE_URL}`);
