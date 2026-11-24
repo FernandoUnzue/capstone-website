@@ -1,7 +1,7 @@
 import { CASE_PAGES, CASES, SERVICES, VIDEOS } from './data.js';
 
 // Dominio canónico. Se puede sobrescribir con la variable de entorno VITE_SITE_URL al compilar.
-export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://capstoneside.com').replace(/\/$/, '');
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://www.capstoneside.com').replace(/\/$/, '');
 
 export const ORG = {
   name: 'Capstone',

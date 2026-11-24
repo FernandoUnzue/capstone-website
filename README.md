@@ -52,7 +52,7 @@ Variables de entorno (ver `.env.example`):
 | `RESEND_API_KEY` | Obligatoria en producción. |
 | `CONTACT_TO` | Destinatarios, separados por coma (default `hi@capstoneside.com`). |
 | `CONTACT_FROM` | Remitente de un dominio verificado en Resend (default `Capstone Web <web@capstoneside.com>`). |
-| `VITE_SITE_URL` | Dominio canónico (default `https://capstoneside.com`). |
+| `VITE_SITE_URL` | Dominio canónico (default `https://www.capstoneside.com`). |
 
 ## Deploy (Vercel)
 
