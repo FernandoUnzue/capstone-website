@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capstone · Data on your side™</title>
+<meta name="description" content="Capstone: software, plataformas de datos e inteligencia artificial. Productos Enerflux y FidelyFlux.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,500&amp;family=Caveat:wght@700&amp;family=Rubik:wght@300;400;500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div style="width: 100%; font-family: Rubik, system-ui, sans-serif; color: #081C15; background: #FFFFFF; overflow-x: clip">
+<div class="progress" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="hdr" style="position: sticky; top: 0; z-index: 40; background: rgba(8,28,21,0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08)">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px">
+<a href="#top" style="display: flex; align-items: center"><img src="assets/img/capstone.png" alt="Capstone" class="logo-h" style="height: 32px; width: auto"></a>
+<nav class="navlinks" aria-label="Principal" style="font-size: 14px; height: 100%; gap: 26px">
+<a href="#que-hacemos" class="nl" style="text-decoration: none; color: #FFFFFF">Qué hacemos</a>
+<div class="has-mega" style="position: relative; height: 100%; display: flex; align-items: center">
+<a href="#productos" class="nl" style="text-decoration: none; color: #FFFFFF; display: flex; align-items: center; gap: 6px">Productos<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
+<div class="mega" style="width: 600px; background: #FFFFFF; border-radius: 22px; box-shadow: 0 30px 70px rgba(0,0,0,0.35); padding: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<a href="https://www.enerflux.com.ar" style="text-decoration: none; padding: 22px; border-radius: 14px; background: #FFF4E8; display: flex; flex-direction: column; gap: 12px; color: #081C15"><img src="assets/img/enerflux.png" alt="Enerflux" style="height: 26px; width: auto; align-self: flex-start"><span style="font-size: 14px; line-height: 1.45; color: #3D4847">Calidad de red, interrupciones y reportes regulatorios.</span><span class="mono" style="font-size: 11px; color: #8A4B00">Ir al sitio ↗</span></a>
+<a href="#fidelyflux" style="text-decoration: none; padding: 22px; border-radius: 14px; background: #FBF4E6; display: flex; flex-direction: column; gap: 12px; color: #081C15"><img src="assets/img/fidelyflux.png" alt="FidelyFlux" style="height: 30px; width: auto; align-self: flex-start"><span style="font-size: 14px; line-height: 1.45; color: #3D4847">Gestioná la fidelización: tickets, puntos y premios en un solo lugar.</span><span class="mono" style="font-size: 11px; color: #8A5A10">Conocer más →</span></a>
+</div>
+</div>
+<a href="#videos" class="nl" style="text-decoration: none; color: #FFFFFF">Videos</a>
+<a href="#casos" class="nl" style="text-decoration: none; color: #FFFFFF">Casos</a>
+<a href="#equipo" class="nl" style="text-decoration: none; color: #FFFFFF">Equipo</a>
+<a href="#contacto" class="nl" style="text-decoration: none; color: #FFFFFF">Contacto</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px">
+<span class="lang-sw" aria-label="Idioma"><span class="lang-on">ES</span><a href="Capstone-sitio-EN.html" hreflang="en" lang="en">EN</a></span>
+<a href="#contacto" class="btn btn-g cta-h" style="text-decoration: none; background: #33CC99; color: #081C15; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 999px">Hablemos</a>
+<div data-island="burger" style="display:contents"></div>
+</div>
+</div>
+<div data-island="menu" style="display:contents"></div>
+</header>
+
+<!-- HERO -->
+<section id="top" data-ref="setHero" data-on-mousemove="heroMove" style="background: #081C15; color: #FFFFFF; position: relative; overflow: hidden; padding: 96px 0 0">
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+<div class="spot" aria-hidden="true"></div>
+<svg aria-hidden="true" viewBox="0 0 1440 700" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+<path id="fl1" d="M-20 520 C 300 420, 520 640, 820 470 S 1260 300, 1480 380" fill="none" stroke="rgba(51,204,153,0.18)" stroke-width="1.2"></path>
+<path id="fl2" d="M-20 600 C 360 560, 600 420, 900 540 S 1250 640, 1480 520" fill="none" stroke="rgba(51,204,153,0.12)" stroke-width="1"></path>
+<circle r="3.5" fill="#33CC99"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#fl1"></mpath></animateMotion></circle>
+<circle r="2.5" fill="#C9FFE9"><animateMotion dur="9s" begin="-3s" repeatCount="indefinite"><mpath href="#fl1"></mpath></animateMotion></circle>
+<circle r="3" fill="#33CC99"><animateMotion dur="11s" begin="-5s" repeatCount="indefinite"><mpath href="#fl2"></mpath></animateMotion></circle>
+<circle r="2" fill="#FFD08A"><animateMotion dur="8s" begin="-1s" repeatCount="indefinite"><mpath href="#fl2"></mpath></animateMotion></circle>
+</svg>
+<img class="iso-spin" src="assets/img/img-478ab867.png" alt="" aria-hidden="true" style="position: absolute; right: -220px; top: -160px; width: 760px; height: 760px; opacity: 0.06">
+<div aria-hidden="true" style="position: absolute; left: -120px; bottom: 140px; width: 240px; height: 240px; background: #33CC99; opacity: 0.12; border-radius: 0 100% 0 0"></div>
+<div class="wrap hero" style="position: relative">
+<div style="display: flex; flex-direction: column; gap: 30px; padding-bottom: 24px">
+<div class="mono kick rise d1" style="color: #33CC99">Work smarter,&nbsp;<s class="strike" aria-label="not harder (tachado)">not harder</s></div>
+<h1 class="disp h-xl" style="font-size: 96px; font-weight: 600; color: #FFFFFF">
+<span class="clip d2">Datos que se</span>
+<span class="clip d3">convierten en</span>
+<span class="clip d4"><span class="words shine" style="color: #33CC99"><span>decisiones.</span><span>eficiencia.</span><span>resultados.</span><span>decisiones.</span></span></span>
+</h1>
+<p class="rise d5" style="margin: 0; font-size: 20px; line-height: 1.6; color: #C9D2D0; max-width: 560px"><strong style="color: #FFFFFF; font-weight: 600">Tus datos ya saben lo que viene. Nosotros los hacemos hablar.</strong><br>Desarrollamos e implementamos software, plataformas de datos e inteligencia artificial que transforman la información de tu organización.</p>
+<div class="rise d6" style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center">
+<a href="#casos" class="btn btn-g glow-b" style="text-decoration: none; background: #33CC99; color: #081C15; font-weight: 600; padding: 18px 30px; border-radius: 999px; font-size: 16px">Ver casos de éxito</a>
+<a href="#videos" class="btn" style="text-decoration: none; color: #FFFFFF; font-weight: 500; padding: 17px 24px; display: flex; align-items: center; gap: 12px"><span style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>Mirá los videos</a>
+</div>
+</div>
+<!-- composición de dispositivos -->
+<div class="collage rise d4" style="position: relative; height: 560px; perspective: 1600px">
+<div aria-hidden="true" class="orbit" style="position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 50%; border: 1px dashed rgba(51,204,153,0.25)"><span style="position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: #33CC99; box-shadow: 0 0 18px #33CC99"></span></div>
+<div class="browser fl-a" style="position: absolute; right: -10px; top: 40px; width: 560px; border-radius: 14px; overflow: hidden; background: #0B1F18; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 40px 90px rgba(0,0,0,0.55); transform: rotateY(-10deg) rotateX(4deg)">
+<div style="height: 34px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #10261E; border-bottom: 1px solid rgba(255,255,255,0.08)"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FF5F57"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FEBC2E"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #28C840"></span><span style="margin-left: 14px; flex: 1; height: 20px; border-radius: 6px; background: rgba(255,255,255,0.06); color: #A7B3B1; font-size: 11px; display: flex; align-items: center; padding: 0 10px; font-family: Rubik, sans-serif">enerflux.com.ar</span></div>
+<img src="assets/img/plataforma-enerflux.jpg" alt="Plataforma Enerflux" style="display: block; width: 100%; height: auto">
+</div>
+<div class="phone fl-b" style="position: absolute; left: 10px; top: 150px; width: 200px; height: 400px; border-radius: 36px; background: #050807; padding: 9px; box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.12)">
+<div style="position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden"><img src="assets/img/app-de-alohar.jpg" alt="App de Alohar" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block"><span style="position: absolute; top: 8px; left: 50%; width: 64px; height: 18px; margin-left: -32px; border-radius: 10px; background: #050807"></span></div>
+</div>
+</div>
+</div>
+<!-- 3 caminos -->
+<div class="wrap" style="position: relative; margin-top: 56px">
+<div class="mono rise d6" style="color: #7D8B88; font-size: 11px; padding-bottom: 14px">¿Qué estás buscando?</div>
+<div class="g3 rise d6" style="gap: 0; border-top: 1px solid rgba(255,255,255,0.14)">
+<a href="#que-hacemos" class="door" style="text-decoration: none; color: #FFFFFF; padding: 28px 24px 34px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(255,255,255,0.14)">
+<span style="display: flex; flex-direction: column; gap: 8px"><span class="mono" style="color: #33CC99; font-size: 11px">Servicios</span><span style="font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2">Resolver un desafío con tecnología a medida</span></span>
+<svg class="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#33CC99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+</a>
+<a href="#enerflux" class="door" style="text-decoration: none; color: #FFFFFF; padding: 28px 24px 34px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-right: 1px solid rgba(255,255,255,0.14)">
+<span style="display: flex; flex-direction: column; gap: 8px"><span class="mono" style="color: #FFB25C; font-size: 11px">Enerflux</span><span style="font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2">Convertir datos energéticos en decisiones</span></span>
+<svg class="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB25C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+</a>
+<a href="#fidelyflux" class="door" style="text-decoration: none; color: #FFFFFF; padding: 28px 0 34px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+<span style="display: flex; flex-direction: column; gap: 8px"><span class="mono" style="color: #E3B260; font-size: 11px">FidelyFlux</span><span style="font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2">Fidelizar clientes, asociados o vecinos</span></span>
+<svg class="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3B260" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+</a>
+</div>
+</div>
+</section>
+
+<!-- MARQUESINA TIPOGRÁFICA -->
+<section aria-label="Clientes" style="background: #FFFFFF; padding: 56px 0 52px; border-bottom: 1px solid #E2E8E7">
+<div class="wrap" style="display: flex; align-items: center; gap: 48px">
+<span class="mono" style="flex: none; color: #586462; font-size: 11px; line-height: 1.5; width: 120px">Confían<br>en nosotros</span>
+<div class="fade" style="flex: 1; overflow: hidden; min-width: 0">
+<div class="marquee" style="gap: 72px; align-items: center">
+<div style="display: flex; gap: 72px; align-items: center"><img class="cl" src="assets/img/enel.png" alt="Enel"><img class="cl" src="assets/img/cfi.png" alt="CFI"><img class="cl" src="assets/img/mia-world.png" alt="MIA World"><img class="cl" src="assets/img/hofstetter.png" alt="Hofstetter"><img class="cl" src="assets/img/avc-internettv.png" alt="AVC internet·tv"><img class="cl" src="assets/img/acf-fiorentina.png" alt="ACF Fiorentina"><img class="cl" src="assets/img/centro-de-estudios-digestivos.png" alt="Centro de Estudios Digestivos"><img class="cl" src="assets/img/magiis.png" alt="Magiis"><img class="cl" src="assets/img/alohar.png" alt="Alohar"><img class="cl" src="assets/img/gazeta-celesi.png" alt="Gazeta Celesi"><img class="cl" src="assets/img/fabiani.png" alt="Fabiani"><img class="cl" src="assets/img/haciendo-camino.png" alt="Haciendo Camino" style="height: 40px"><img class="cl" src="assets/img/jumpit-zone.png" alt="Jumpit Zone"><img class="cl" src="assets/img/electroterma.png" alt="Electroterma" style="height: 26px"><img class="cl" src="assets/img/terrasur.png" alt="Terrasur" style="height: 40px"><img class="cl" src="assets/img/provincia-de-san-luis.png" alt="Provincia de San Luis" style="height: 38px"></div>
+<div aria-hidden="true" style="display: flex; gap: 72px; align-items: center"><img class="cl" src="assets/img/enel.png" alt="Enel"><img class="cl" src="assets/img/cfi.png" alt="CFI"><img class="cl" src="assets/img/mia-world.png" alt="MIA World"><img class="cl" src="assets/img/hofstetter.png" alt="Hofstetter"><img class="cl" src="assets/img/avc-internettv.png" alt="AVC internet·tv"><img class="cl" src="assets/img/acf-fiorentina.png" alt="ACF Fiorentina"><img class="cl" src="assets/img/centro-de-estudios-digestivos.png" alt="Centro de Estudios Digestivos"><img class="cl" src="assets/img/magiis.png" alt="Magiis"><img class="cl" src="assets/img/alohar.png" alt="Alohar"><img class="cl" src="assets/img/gazeta-celesi.png" alt="Gazeta Celesi"><img class="cl" src="assets/img/fabiani.png" alt="Fabiani"><img class="cl" src="assets/img/haciendo-camino.png" alt="Haciendo Camino" style="height: 40px"><img class="cl" src="assets/img/jumpit-zone.png" alt="Jumpit Zone"><img class="cl" src="assets/img/electroterma.png" alt="Electroterma" style="height: 26px"><img class="cl" src="assets/img/terrasur.png" alt="Terrasur" style="height: 40px"><img class="cl" src="assets/img/provincia-de-san-luis.png" alt="Provincia de San Luis" style="height: 38px"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUÉ HACEMOS -->
+<section id="que-hacemos" style="padding: 140px 0 130px; position: relative">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 64px">
+<div class="svc-head" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 26px">
+<div class="mono kick reveal" style="color: #178F6B">Qué hacemos</div>
+<h2 class="disp h-l reveal" style="font-size: 64px; font-weight: 600">Hacemos que la tecnología sea <em>fácil.</em></h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 28px">
+<p class="reveal" style="margin: 0; font-size: 18px; line-height: 1.65; color: #3D4847; max-width: 440px">Combinamos datos, inteligencia artificial y desarrollo a medida para que veas lo que hoy está oculto en tu organización: riesgos, ahorros y nuevas fuentes de ingresos.</p>
+<div data-island="stats" style="display:contents"></div>
+</div>
+</div>
+<div role="list" style="border-top: 1px solid #C9D2D0">
+<div data-island="services" style="display:contents"></div>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos" style="background: #081C15; color: #FFFFFF; padding: 120px 0 0; position: relative; overflow: hidden">
+<div class="wrap" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; padding-bottom: 64px">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 760px">
+<div class="mono kick reveal" style="color: #33CC99">Productos Capstone</div>
+<h2 class="disp h-l reveal" style="font-size: 64px; font-weight: 600; color: #FFFFFF">Lo aprendido en cada proyecto, <span class="thin">convertido en plataforma.</span></h2>
+</div>
+<p class="reveal" style="margin: 0; max-width: 360px; color: #A7B3B1; line-height: 1.65">Productos listos para implementar, con el equipo Capstone detrás de cada implementación.</p>
+</div>
+<div class="prod">
+<article id="enerflux" class="bg-enerflux panel-prod" style="min-height: 680px; padding: 56px; display: flex; flex-direction: column; justify-content: flex-end; gap: 22px; position: relative">
+<span class="mono" style="position: absolute; top: 40px; left: 56px; font-size: 11px; color: #FFD8AE">01 · Energía · Industria · Regulación</span>
+<div class="logo-box" style="background: #FFFFFF; border-radius: 0 28px 28px 28px; padding: 18px 24px; align-self: flex-start"><img src="assets/img/enerflux.png" alt="Enerflux" style="height: 44px; width: auto; display: block"></div>
+<h3 class="disp" style="font-size: 40px; font-weight: 600; color: #FFFFFF; max-width: 540px">Más eficiencia en el monitoreo, control y gestión de recursos energéticos.</h3>
+<p style="margin: 0; color: #E2E8E7; max-width: 500px; line-height: 1.6">Un producto pensado para empresas energéticas, cooperativas, reguladores e industrias. Unifica datos de medición, calidad y operación en una sola plataforma para detectar desvíos a tiempo, optimizar recursos y automatizar reportes y procesos.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<a href="https://www.enerflux.com.ar" class="btn" style="text-decoration: none; background: #FF8C00; color: #081C15; font-weight: 600; padding: 16px 26px; border-radius: 999px">Ir a enerflux.com.ar ↗</a>
+<a href="#contacto" class="btn" style="text-decoration: none; border: 1px solid rgba(255,255,255,0.5); color: #FFFFFF; padding: 15px 24px; border-radius: 999px; font-weight: 500">Solicitar demo</a>
+</div>
+</article>
+<article id="fidelyflux" class="panel-prod" style="min-height: 680px; background: #FBF5EA; color: #1A140C; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; right: -140px; top: -140px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(226,166,58,0.35), rgba(226,166,58,0) 70%)"></div>
+<span class="mono" style="position: absolute; top: 40px; left: 56px; font-size: 11px; color: #8A5A10; z-index: 1">02 · Loyalty · Rewards</span>
+<div style="position: relative; height: 330px; margin-top: 70px; padding: 0 40px; display: flex; justify-content: center; align-items: flex-end"><img src="assets/img/panel-y-app-de-fidelyflux.jpg" alt="Panel y app de FidelyFlux" style="max-height: 100%; max-width: 100%; width: auto; display: block; mix-blend-mode: multiply"></div>
+<div style="padding: 32px 56px 56px; display: flex; flex-direction: column; gap: 20px; position: relative">
+<div class="logo-box" style="align-self: flex-start"><img src="assets/img/fidelyflux.png" alt="FidelyFlux · Loyalty · Rewards" style="height: 52px; width: auto; display: block"></div>
+<h3 class="disp" style="font-size: 40px; font-weight: 600; color: #1A140C; max-width: 540px">Gestioná la fidelización <span style="color: #B87C18">en un solo lugar.</span></h3>
+<p style="margin: 0; color: #5A4A35; max-width: 500px; line-height: 1.6">Una plataforma para que tus clientes, asociados o vecinos vuelvan una y otra vez. Puntos, premios y beneficios en un solo lugar, con datos en tiempo real para conocerlos mejor. Pensada para shoppings, comercios, entidades públicas, cooperativas y distribuidoras.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<a href="#contacto" class="btn" style="text-decoration: none; background: linear-gradient(135deg, #E8A93A, #C47F12); color: #1A140C; font-weight: 600; padding: 16px 26px; border-radius: 999px">Solicitar demo</a>
+<a href="#casos" class="btn" style="text-decoration: none; border: 1px solid #1A140C; color: #1A140C; padding: 15px 24px; border-radius: 999px; font-weight: 500">Ver casos de fidelización</a>
+</div>
+</div>
+</article>
+</div>
+<div class="wrap" style="padding-top: 96px; padding-bottom: 120px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 20px"><div class="mono kick reveal" style="color: #33CC99">Casos con nuestros productos</div><h3 class="disp reveal" style="font-size: 44px; font-weight: 600; color: #FFFFFF">Productos que ya están <span class="thin">funcionando.</span></h3></div>
+</div>
+<div class="g2" style="gap: 24px; align-items: stretch">
+<article class="lift reveal" style="background: #0F2A20; border: 1px solid rgba(255,255,255,0.1); border-radius: 0 40px 40px 40px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden; position: relative"><img src="assets/img/plataforma-de-datos-de-san-luis.jpg" alt="Plataforma de datos de San Luis" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block"><span style="position: absolute; left: 18px; bottom: 18px; background: #FFFFFF; border-radius: 0 12px 12px 12px; padding: 8px 12px"><img src="assets/img/enerflux.png" alt="Enerflux" style="height: 22px; width: auto; display: block"></span></div>
+<div style="padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+<span class="mono" style="font-size: 10px; color: #FFB25C">Enerflux · Provincia de San Luis</span>
+<h4 class="disp" style="margin: 0; font-size: 28px; font-weight: 600; color: #FFFFFF">Plataforma de datos para el sector energético y productivo</h4>
+<p style="margin: 0; color: #A7B3B1; line-height: 1.6; font-size: 15px">Junto al ente regulador provincial, integramos datos de calidad de servicio y operación para fiscalizar, anticipar desvíos y automatizar reportes. Proyecto en dos etapas.</p>
+<button type="button" data-on-click="openSanLuis" style="margin-top: auto; padding: 8px 0 0; align-self: flex-start; background: none; border: none; cursor: pointer; color: #33CC99; font: 500 15px Rubik, sans-serif; margin-bottom: 4px">▶ Ver el testimonio en video</button>
+<button type="button" data-on-click="openSanLuisCase" style="padding: 0; align-self: flex-start; background: none; border: none; cursor: pointer; color: #FFFFFF; font: 500 15px Rubik, sans-serif">Ver caso completo →</button>
+</div>
+</article>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div class="mono" style="font-size: 10px; color: #E3B260; padding-bottom: 4px">FidelyFlux · Programas que le dieron origen</div>
+<article class="lift reveal" style="background: #0F2A20; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 150px minmax(0, 1fr); flex: 1"><div style="background: #FFFFFF"><img src="assets/img/sitio-web-de-mia-world.jpg" alt="Sitio web de MIA World" style="width: 100%; height: 100%; object-fit: cover; object-position: 16% center; display: block"></div><div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; justify-content: center"><span class="mono" style="font-size: 10px; color: #E3B260">Fintech · Italia</span><h4 class="disp" style="margin: 0; font-size: 20px; font-weight: 600; color: #FFFFFF">MIA World</h4><p style="margin: 0; color: #A7B3B1; font-size: 14px; line-height: 1.5">Cashback y beneficios con red de comercios adheridos.</p><button type="button" data-on-click="openMiaCase" style="padding: 4px 0 0; align-self: flex-start; background: none; border: none; cursor: pointer; color: #E3B260; font: 500 14px Rubik, sans-serif">Ver caso completo →</button></div></article>
+<article class="lift reveal" style="background: #0F2A20; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 150px minmax(0, 1fr); flex: 1"><div style="background: #FFFFFF"><img src="assets/img/app-viola-de-acf-fiorentina.jpg" alt="App Viola de ACF Fiorentina" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block"></div><div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; justify-content: center"><span class="mono" style="font-size: 10px; color: #E3B260">Deporte · Italia</span><h4 class="disp" style="margin: 0; font-size: 20px; font-weight: 600; color: #FFFFFF">ACF Fiorentina · In Viola Card</h4><p style="margin: 0; color: #A7B3B1; font-size: 14px; line-height: 1.5">Co-marketing de fidelización en el fútbol, con app para comercios.</p><button type="button" data-on-click="openFiorentinaCase" style="padding: 4px 0 0; align-self: flex-start; background: none; border: none; cursor: pointer; color: #E3B260; font: 500 14px Rubik, sans-serif">Ver caso completo →</button></div></article>
+<article class="lift reveal" style="background: #0F2A20; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 150px minmax(0, 1fr); flex: 1"><div style="background: #FFFFFF"><img src="assets/img/app-fabiani.jpg" alt="App Fabiani" style="width: 100%; height: 100%; object-fit: cover; object-position: 20% top; display: block"></div><div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; justify-content: center"><span class="mono" style="font-size: 10px; color: #E3B260">Retail de lujo · Italia</span><h4 class="disp" style="margin: 0; font-size: 20px; font-weight: 600; color: #FFFFFF">Fabiani Gioiellerie</h4><p style="margin: 0; color: #A7B3B1; font-size: 14px; line-height: 1.5">Puntos, tarjeta digital y promociones personalizadas.</p><button type="button" data-on-click="openFabianiCase" style="padding: 4px 0 0; align-self: flex-start; background: none; border: none; cursor: pointer; color: #E3B260; font: 500 14px Rubik, sans-serif">Ver caso completo →</button></div></article>
+</div>
+</div>
+</div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos" style="background: #04110C; color: #FFFFFF; padding: 130px 0">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 760px">
+<div class="mono kick reveal" style="color: #33CC99">Casos en video</div>
+<h2 class="disp h-l reveal" style="font-size: 64px; font-weight: 600; color: #FFFFFF">Que lo cuenten <em>nuestros clientes.</em></h2>
+</div>
+<p class="reveal" style="margin: 0; max-width: 360px; color: #A7B3B1; line-height: 1.65">Testimonios y recorridos de cada proyecto, en la voz de quienes lo usan todos los días.</p>
+</div>
+<div data-island="video" style="display:contents"></div>
+</div>
+</section>
+
+<!-- CASOS -->
+<section id="casos" style="padding: 130px 0; background: #EEF2F4">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 760px">
+<div class="mono kick reveal" style="color: #178F6B">Portfolio</div>
+<h2 class="disp h-l reveal" style="font-size: 64px; font-weight: 600">De Argentina <span class="thin">al mundo.</span></h2>
+</div>
+<div role="group" aria-label="Filtrar casos" class="reveal" style="display: flex; gap: 6px; flex-wrap: wrap; background: #FFFFFF; padding: 6px; border-radius: 999px">
+<div data-island="filters" style="display:contents"></div>
+</div>
+</div>
+<div class="cg" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; gap: 24px">
+<div data-island="cases" style="display:contents"></div>
+</div>
+</div>
+</section>
+
+<!-- CITA -->
+<section style="background: #081C15; color: #FFFFFF; padding: 150px 0; position: relative; overflow: hidden">
+<img class="iso-spin" src="assets/img/img-478ab867.png" alt="" aria-hidden="true" style="position: absolute; left: -160px; top: 50%; margin-top: -300px; width: 600px; height: 600px; opacity: 0.08; animation-duration: 120s">
+<div class="wrap" style="position: relative; display: flex; flex-direction: column; gap: 36px">
+<img src="assets/img/favicon.png" alt="" aria-hidden="true" class="reveal" style="width: 72px; height: 72px">
+<blockquote class="disp reveal-clip h-l" style="font-size: 60px; font-weight: 600; color: #FFFFFF; max-width: 1100px; line-height: 1.08">Encontramos las <em>oportunidades ocultas</em> que hacen que tu negocio funcione aún mejor.</blockquote>
+<span class="mono reveal" style="color: #7D8B88">— Blending data for smoother businesses</span>
+</div>
+</section>
+
+<!-- CÓMO TRABAJAMOS -->
+<section class="vid-sec" style="padding: 150px 0 140px; overflow: hidden">
+<video class="vid-bg" src="assets/video/hero-bg.mp4" poster="assets/img/img-ab2dd987.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video><div class="vid-ov" aria-hidden="true"></div>
+<div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div class="mono kick reveal" style="color: #178F6B">Cómo trabajamos</div>
+<h2 class="disp h-l reveal" style="font-size: 64px; font-weight: 600">Del diagnóstico al resultado, <span class="thin">juntos.</span></h2>
+</div>
+<div class="g4" style="gap: 0">
+<div class="reveal step" style="border-top: 2px solid #33CC99; display: flex; flex-direction: column; gap: 14px"><span class="disp num" style="font-size: 64px; font-weight: 600; color: #C9D2D0">01</span><h3 class="disp" style="font-size: 28px; font-weight: 600">Relevamos</h3><p style="margin: 0; color: #3D4847; line-height: 1.6">Escuchamos al equipo y entendemos los datos y procesos actuales.</p></div>
+<div class="reveal step" style="border-top: 2px solid #33CC99; display: flex; flex-direction: column; gap: 14px"><span class="disp num" style="font-size: 64px; font-weight: 600; color: #C9D2D0">02</span><h3 class="disp" style="font-size: 28px; font-weight: 600">Diseñamos</h3><p style="margin: 0; color: #3D4847; line-height: 1.6">Definimos la solución, los indicadores de éxito y la hoja de ruta.</p></div>
+<div class="reveal step" style="border-top: 2px solid #33CC99; display: flex; flex-direction: column; gap: 14px"><span class="disp num" style="font-size: 64px; font-weight: 600; color: #C9D2D0">03</span><h3 class="disp" style="font-size: 28px; font-weight: 600">Desarrollamos</h3><p style="margin: 0; color: #3D4847; line-height: 1.6">Construimos en etapas, con entregas visibles y validación continua.</p></div>
+<div class="reveal step" style="border-top: 2px solid #33CC99; display: flex; flex-direction: column; gap: 14px"><span class="disp num" style="font-size: 64px; font-weight: 600; color: #C9D2D0">04</span><h3 class="disp" style="font-size: 28px; font-weight: 600">Acompañamos</h3><p style="margin: 0; color: #3D4847; line-height: 1.6">Soporte y mejora continua con la solución en marcha.</p></div>
+</div>
+</div>
+</section>
+
+<!-- EQUIPO -->
+<section id="equipo" style="padding: 140px 0 140px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 760px">
+<div class="mono kick reveal" style="color: #178F6B">El equipo</div>
+<h2 class="disp h-l reveal" style="font-size: 64px; font-weight: 600">Somos gestores <span class="thin">de innovación.</span></h2>
+</div>
+<p class="reveal" style="margin: 0; max-width: 380px; color: #3D4847; line-height: 1.65">Negocio, tecnología y transformación digital, entre Argentina y Europa.</p>
+</div>
+<div class="g3" style="gap: 28px">
+<article class="team reveal" style="display: flex; flex-direction: column; gap: 22px">
+<div style="aspect-ratio: 4 / 5; overflow: hidden; border-radius: 0 120px 0 0; background: #DFE6E4"><img src="assets/img/ignacio-noli.jpg" alt="Ignacio Noli" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="font-size: 30px; font-weight: 600">Ignacio Noli</h3><span class="mono" style="font-size: 11px; color: #178F6B">Co-Founder · Business Director</span><p style="margin: 6px 0 0; color: #3D4847; line-height: 1.6; font-size: 15px">+10 años en gestión empresarial, con visión de largo plazo sobre el rol de los datos en el desarrollo de negocios.</p></div>
+</article>
+<article class="team reveal" style="display: flex; flex-direction: column; gap: 22px; margin-top: 64px">
+<div style="aspect-ratio: 4 / 5; overflow: hidden; border-radius: 0 120px 0 0; background: #DFE6E4"><img src="assets/img/fernando-unzue.jpg" alt="Fernando Unzué" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="font-size: 30px; font-weight: 600">Fernando Unzué</h3><span class="mono" style="font-size: 11px; color: #178F6B">Co-Founder · Technology Director</span><p style="margin: 6px 0 0; color: #3D4847; line-height: 1.6; font-size: 15px">+15 años de experiencia internacional en TIC, en banca y retail, implementando programas de loyalty.</p></div>
+</article>
+<article class="team reveal" style="display: flex; flex-direction: column; gap: 22px; margin-top: 128px">
+<div style="aspect-ratio: 4 / 5; overflow: hidden; border-radius: 0 120px 0 0; background: #DFE6E4"><img src="assets/img/mariano-faiella.jpg" alt="Mariano Faiella" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="font-size: 30px; font-weight: 600">Mariano Faiella</h3><span class="mono" style="font-size: 11px; color: #178F6B">Co-Founder · Digital Transformation</span><p style="margin: 6px 0 0; color: #3D4847; line-height: 1.6; font-size: 15px">+18 años en energías renovables, transformación digital y gestión de activos basada en datos.</p></div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" style="background: #33CC99; color: #081C15; padding: 140px 0; position: relative; overflow: hidden">
+<img class="iso-spin" src="assets/img/img-255b4177.png" alt="" aria-hidden="true" style="position: absolute; right: -180px; bottom: -220px; width: 700px; height: 700px; opacity: 0.1">
+<div class="wrap" style="position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px; align-items: center" id="contact-grid">
+<div style="display: flex; flex-direction: column; gap: 28px; align-items: flex-start">
+<div class="mono kick kick-dark reveal" style="color: #081C15">Contacto</div>
+<h2 class="disp reveal-clip h-l" style="font-size: 80px; font-weight: 600; color: #081C15; line-height: 0.98">Trabajemos juntos.</h2>
+<p class="reveal" style="margin: 0; font-size: 19px; line-height: 1.6; max-width: 460px; color: #0F5141">Contanos qué querés resolver. Te respondemos en menos de 24 horas.</p>
+<div class="reveal" style="display: grid; grid-template-columns: 110px minmax(0, 1fr); row-gap: 18px; column-gap: 20px; align-items: baseline; width: 100%; max-width: 520px; padding-top: 18px; border-top: 1px solid rgba(8,28,21,0.2)">
+<span class="mono" style="font-size: 11px; color: #0F5141">Email</span><a href="mailto:hi@capstoneside.com" class="disp" style="font-size: 26px; font-weight: 600; text-decoration: none; color: #081C15">hi@capstoneside.com</a>
+<span class="mono" style="font-size: 11px; color: #0F5141">Teléfono</span><a href="tel:+5492235953896" class="disp" style="font-size: 26px; font-weight: 600; text-decoration: none; color: #081C15">+54 9 223 595 3896</a>
+<span class="mono" style="font-size: 11px; color: #0F5141">Argentina</span><span class="disp" style="font-size: 20px; font-weight: 600; color: #081C15; line-height: 1.35">Bernardo de Irigoyen 3918, Playa Grande<br>B7600 Mar del Plata, Buenos Aires</span>
+<span class="mono" style="font-size: 11px; color: #0F5141">España</span><span class="disp" style="font-size: 20px; font-weight: 600; color: #081C15; line-height: 1.35">Calle de Manzanares 4, Arganzuela<br>28005 Madrid</span>
+</div>
+</div>
+<form class="reveal" style="background: #081C15; color: #FFFFFF; border-radius: 0 48px 48px 48px; padding: 44px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 40px 80px rgba(8,28,21,0.35)">
+<div class="g2" style="gap: 20px">
+<label class="mono" style="display: flex; flex-direction: column; gap: 10px; font-size: 10px; color: #A7B3B1">Nombre<input type="text" style="font: 400 17px Rubik, sans-serif; color: #FFFFFF; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding: 10px 0; min-height: 44px"></label>
+<label class="mono" style="display: flex; flex-direction: column; gap: 10px; font-size: 10px; color: #A7B3B1">Email<input type="email" style="font: 400 17px Rubik, sans-serif; color: #FFFFFF; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding: 10px 0; min-height: 44px"></label>
+</div>
+<fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+<legend class="mono" style="font-size: 10px; color: #A7B3B1; padding: 0; margin-bottom: 12px">Me interesa</legend>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<div data-island="interests" style="display:contents"></div>
+</div>
+</fieldset>
+<label class="mono" style="display: flex; flex-direction: column; gap: 10px; font-size: 10px; color: #A7B3B1">Mensaje<textarea rows="3" style="font: 400 17px Rubik, sans-serif; color: #FFFFFF; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding: 10px 0; resize: vertical"></textarea></label>
+<button type="submit" class="btn btn-g" style="font: 600 17px Rubik, sans-serif; background: #33CC99; color: #081C15; border: none; border-radius: 999px; padding: 18px; min-height: 52px; cursor: pointer; margin-top: 6px">Enviar mensaje →</button>
+</form>
+</div>
+</section>
+
+<div data-island="case" style="display:contents"></div>
+
+<div data-island="lightbox" style="display:contents"></div>
+
+<!-- FOOTER -->
+<footer style="background: #04110C; color: #A7B3B1; padding: 90px 0 36px; overflow: hidden">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 64px">
+<div class="g4">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<img src="assets/img/capstone.png" alt="Capstone" style="height: 32px; width: auto; align-self: flex-start">
+<span class="mono" style="font-size: 11px; color: #33CC99">Data on your side™</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px"><span class="mono" style="font-size: 10px; color: #FFFFFF">Qué hacemos</span><a href="#que-hacemos" style="color: #A7B3B1; text-decoration: none">Data &amp; Analytics</a><a href="#que-hacemos" style="color: #A7B3B1; text-decoration: none">IA Aplicada</a><a href="#que-hacemos" style="color: #A7B3B1; text-decoration: none">Custom Development</a><a href="#que-hacemos" style="color: #A7B3B1; text-decoration: none">Consultoría &amp; Transformación</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px"><span class="mono" style="font-size: 10px; color: #FFFFFF">Productos</span><a href="https://www.enerflux.com.ar" style="color: #A7B3B1; text-decoration: none">Enerflux ↗</a><a href="#fidelyflux" style="color: #A7B3B1; text-decoration: none">FidelyFlux</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px"><span class="mono" style="font-size: 10px; color: #FFFFFF">Empresa</span><a href="#casos" style="color: #A7B3B1; text-decoration: none">Casos de éxito</a><a href="#videos" style="color: #A7B3B1; text-decoration: none">Videos</a><a href="#equipo" style="color: #A7B3B1; text-decoration: none">Equipo</a><a href="#contacto" style="color: #A7B3B1; text-decoration: none">Contacto</a></div>
+</div>
+<div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px"><span class="mono" style="font-size: 10px">© 2026 Capstone. Todos los derechos reservados.</span><span class="mono" style="font-size: 10px"><a href="https://ar.linkedin.com/company/capstoneside" target="_blank" rel="noopener" style="color: inherit; text-decoration: none">LinkedIn ↗</a> · YouTube</span></div>
+</div>
+</footer>
+
+</div>
+<template id="tpl-burger"><button type="button" class="burger" onClick="{{ toggleMenu }}" aria-label="Abrir menú" aria-expanded="{{ menuAttr }}" style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.04); cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 6px; padding: 0">
+<span style="{{ bar1 }}"></span><span style="{{ bar2 }}"></span><span style="{{ bar3 }}"></span>
+</button></template>
+<template id="tpl-menu"><sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<nav class="mmenu" aria-label="Menú móvil" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 12px 20px 28px; display: flex; flex-direction: column">
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+<a href="{{ n.href }}" onClick="{{ closeMenu }}" class="mlink" style="{{ n.style }}"><span>{{ n.label }}</span><span class="mono" style="font-size: 10px; color: #33CC99">{{ n.num }}</span></a>
+</sc-for>
+<a href="#contacto" onClick="{{ closeMenu }}" class="btn btn-g" style="margin-top: 20px; text-decoration: none; background: #33CC99; color: #081C15; font-weight: 600; font-size: 16px; padding: 16px; border-radius: 999px; text-align: center">Hablemos</a>
+</nav>
+</sc-if></template>
+<template id="tpl-stats"><div class="reveal" ref="{{ setStats }}" style="display: flex; gap: 40px; padding-top: 10px">
+<div><div class="disp" style="font-size: 56px; font-weight: 700; color: #33CC99; font-variant-numeric: tabular-nums">+{{ n15 }}</div><div style="font-size: 14px; color: #586462; margin-top: 6px">años de experiencia<br>internacional</div></div>
+<div><div class="disp" style="font-size: 56px; font-weight: 700; color: #33CC99; font-variant-numeric: tabular-nums">{{ n3 }}</div><div style="font-size: 14px; color: #586462; margin-top: 6px">continentes con<br>proyectos</div></div>
+<div><div class="disp" style="font-size: 56px; font-weight: 700; color: #33CC99; font-variant-numeric: tabular-nums">{{ n24 }}h</div><div style="font-size: 14px; color: #586462; margin-top: 6px">tiempo de<br>respuesta</div></div>
+</div></template>
+<template id="tpl-services"><sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+<div role="listitem" class="row reveal" style="border-bottom: 1px solid #C9D2D0">
+<button type="button" class="svc-btn" onClick="{{ s.pick }}" aria-expanded="{{ s.openAttr }}" style="width: 100%; background: none; border: none; cursor: pointer; display: grid; grid-template-columns: 72px minmax(0, 1fr) 48px; align-items: center; gap: 16px; padding: 34px 8px; text-align: left; color: #081C15; font-family: Rubik, sans-serif">
+<span class="mono" style="color: #178F6B; font-size: 14px">{{ s.num }}</span>
+<span style="display: flex; flex-direction: column; gap: 6px"><span class="disp svc-name" style="font-size: 40px; font-weight: 600">{{ s.name }}</span><span style="font-size: 15px; color: #586462">{{ s.short }}</span></span>
+<span style="{{ s.iconStyle }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span>
+</button>
+<sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+<div class="svc-body" style="padding: 0 8px 40px 96px; display: flex; flex-direction: column; gap: 20px; animation: rise 500ms cubic-bezier(.2,.7,.2,1) both">
+<div class="svc-img"><img src="{{ s.img }}" alt=""><span class="svc-tint" aria-hidden="true"></span><span class="svc-scan" aria-hidden="true"></span><span class="svc-iso" aria-hidden="true"></span><span class="svc-bar" aria-hidden="true"></span></div>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3D4847; max-width: 620px">{{ s.text }}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{ s.items }}" as="it" hint-placeholder-count="3"><span class="mono" style="font-size: 11px; background: #ECFBF4; color: #136F54; border-radius: 999px; padding: 8px 14px">{{ it }}</span></sc-for>
+</div>
+<a href="#casos" style="font-weight: 500; font-size: 15px; align-self: flex-start">{{ s.cta }} →</a>
+</div>
+</sc-if>
+</div>
+</sc-for></template>
+<template id="tpl-video"><div class="video" style="{{ videoGridStyle }}">
+<div class="grow" style="display: flex; flex-direction: column; gap: 24px">
+<div class="{{ cur.bgClass }}" style="position: relative; aspect-ratio: 16 / 9; border-radius: 32px; overflow: hidden; background-color: #0F2A20; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{ cur.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ cur.img }}" alt="" style="position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; filter: blur(1.5px) saturate(1.05)"></sc-if>
+<div style="position: absolute; inset: 0; background: rgba(4,17,12,0.45)"></div>
+<sc-if value="{{ cur.hasUrl }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ openVideo }}" aria-label="Reproducir video" style="position: relative; width: 104px; height: 104px; border-radius: 50%; border: none; background: #33CC99; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<span class="pulse" aria-hidden="true"></span>
+<svg width="36" height="36" viewBox="0 0 24 24" fill="#081C15" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+</button></sc-if>
+<sc-if value="{{ cur.noUrl }}" hint-placeholder-val="{{ false }}"><span class="ph" style="border-radius: 32px; z-index: 1"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"></rect><path d="m10 9 5 3-5 3z"></path></svg><span>Completar video<br>{{ cur.client }}</span></span></sc-if>
+<span class="mono" style="position: absolute; left: 28px; top: 26px; font-size: 11px; background: rgba(4,17,12,0.7); padding: 8px 12px; border-radius: 999px">{{ cur.client }}</span>
+<span class="mono" style="position: absolute; right: 28px; bottom: 24px; font-size: 11px; background: rgba(4,17,12,0.7); padding: 8px 12px; border-radius: 999px">{{ cur.dur }}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
+<h3 class="disp" style="font-size: 34px; font-weight: 600; color: #FFFFFF; line-height: 1.1">{{ cur.title }}</h3>
+<p style="margin: 0; color: #A7B3B1; font-size: 17px; line-height: 1.6; font-style: italic">“{{ cur.quote }}” <span style="font-style: normal; color: #7D8B88">— {{ cur.who }}</span></p>
+</div>
+</div>
+<sc-if value="{{ hasMoreVideos }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="font-size: 11px; color: #7D8B88; padding-bottom: 10px">Más videos</span>
+<sc-for list="{{ videos }}" as="v" hint-placeholder-count="4">
+<button type="button" onClick="{{ v.pick }}" aria-pressed="{{ v.selected }}" style="{{ v.rowStyle }}">
+<span style="position: relative; width: 132px; height: 84px; border-radius: 12px; overflow: hidden; flex: none; background: #0F2A20; display: block">
+<sc-if value="{{ v.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ v.img }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></sc-if>
+<span class="{{ v.bgClass }}" style="position: absolute; inset: 0"></span>
+<span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(4,17,12,0.35)"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 6px; text-align: left">
+<span class="mono" style="font-size: 10px; color: #33CC99">{{ v.client }} · {{ v.dur }}</span>
+<span style="font-size: 16px; font-weight: 500; line-height: 1.3; color: #FFFFFF">{{ v.title }}</span>
+</span>
+</button>
+</sc-for>
+</div></sc-if>
+</div></template>
+<template id="tpl-filters"><sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+<button type="button" aria-pressed="{{ f.selected }}" onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.label }}</button>
+</sc-for></template>
+<template id="tpl-cases"><sc-for list="{{ shown }}" as="c" hint-placeholder-count="6">
+<article class="lift tilt" style="{{ c.cardStyle }}">
+<div style="{{ c.imgBox }}">
+<sc-if value="{{ c.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ c.img }}" alt="{{ c.client }}" style="{{ c.imgStyle }}"></sc-if>
+<sc-if value="{{ c.towers }}" hint-placeholder-val="{{ false }}"><div class="bg-towers" style="position: absolute; inset: 0"></div></sc-if>
+<sc-if value="{{ c.ph }}" hint-placeholder-val="{{ false }}"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-5-5L5 21"></path></svg><span>Completar imagen<br>{{ c.client }}</span></div></sc-if>
+<span class="mono" style="position: absolute; left: 18px; top: 18px; font-size: 10px; background: rgba(255,255,255,0.92); color: #081C15; padding: 7px 11px; border-radius: 999px">{{ c.geo }}</span>
+<sc-if value="{{ c.hasLogo }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; left: 18px; bottom: 18px; background: #FFFFFF; border-radius: 0 14px 14px 14px; padding: 10px 14px; box-shadow: 0 8px 20px rgba(8,28,21,0.2)"><img src="{{ c.logo }}" alt="" style="height: 28px; width: auto; display: block"></span></sc-if>
+<sc-if value="{{ c.video }}" hint-placeholder-val="{{ false }}"><span class="mono" style="position: absolute; right: 18px; top: 18px; font-size: 10px; background: #33CC99; color: #081C15; padding: 7px 11px; border-radius: 999px">▶ Video</span></sc-if>
+</div>
+<div style="padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<span class="mono" style="font-size: 10px; color: #178F6B">{{ c.kind }}</span>
+<h3 class="disp" style="font-size: 30px; font-weight: 600">{{ c.client }}</h3>
+<p style="margin: 0; font-size: 15px; color: #3D4847; line-height: 1.55">{{ c.text }}</p>
+<sc-if value="{{ c.detail }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ c.openCase }}" style="margin-top: auto; padding: 10px 0 0; align-self: flex-start; background: none; border: none; cursor: pointer; color: #081C15; font: 500 14px Rubik, sans-serif">Ver caso completo →</button></sc-if>
+</div>
+</article>
+</sc-for></template>
+<template id="tpl-interests"><sc-for list="{{ interests }}" as="i" hint-placeholder-count="4">
+<button type="button" onClick="{{ i.pick }}" aria-pressed="{{ i.selected }}" style="{{ i.style }}">{{ i.label }}</button>
+</sc-for></template>
+<template id="tpl-case"><sc-if value="{{ caseOpen }}" hint-placeholder-val="{{ false }}">
+<div class="cs" role="dialog" aria-modal="true" aria-label="{{ cp.aria }}">
+<div class="cs-bar"><div class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 14px; padding-bottom: 14px">
+<button type="button" onClick="{{ closeCase }}" style="background: none; border: none; color: #FFFFFF; cursor: pointer; font: 500 15px Rubik, sans-serif; padding: 10px 0; min-height: 44px; white-space: nowrap">← Volver a casos</button>
+<span class="mono cs-lbl" style="font-size: 10px; color: #33CC99">{{ cp.label }}</span>
+<button type="button" onClick="{{ closeCase }}" aria-label="Cerrar caso" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.06); color: #FFFFFF; font-size: 20px; cursor: pointer">×</button>
+</div></div>
+
+<section class="{{ cp.heroClass }}" style="color: #FFFFFF">
+<div class="wrap cs-hero" style="padding-top: 96px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center"><span style="background: #FFFFFF; border-radius: 0 12px 12px 12px; padding: 8px 12px; display: inline-flex"><img src="{{ cp.logo }}" alt="{{ cp.logoAlt }}" style="height: 22px; width: auto; display: block"></span><span class="mono" style="font-size: 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 8px 12px">{{ cp.place }}</span></div>
+<h1 class="disp cs-h1" style="margin: 0; font-size: 72px; font-weight: 600; line-height: 1.02; letter-spacing: -0.03em; max-width: 1000px">{{ cp.titleA }} <span class="thin">{{ cp.titleB }}</span></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #C9D2D0; max-width: 720px">{{ cp.lead }}</p>
+<div class="g4" style="padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15)">
+<sc-for list="{{ cp.facts }}" as="f" hint-placeholder-count="4"><div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="font-size: 10px; color: #33CC99">{{ f.k }}</span><span>{{ f.v }}</span></div></sc-for>
+</div>
+</div>
+</section>
+
+<div class="wrap" style="padding-top: 72px">
+<div style="border-radius: 24px; overflow: hidden; box-shadow: 0 30px 80px rgba(8,28,21,0.18); background: #FFFFFF">
+<div style="display: flex; gap: 7px; padding: 14px 18px; background: #E3E9E7"><span style="width: 11px; height: 11px; border-radius: 50%; background: #FF6B5A"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #FFB25C"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #33CC99"></span></div>
+<img src="{{ cp.img }}" alt="{{ cp.imgAlt }}" style="{{ cp.imgStyle }}">
+</div>
+</div>
+
+<section class="wrap" style="padding-top: 110px; padding-bottom: 40px">
+<div class="cs-g">
+<div style="display: flex; flex-direction: column; gap: 18px"><div class="mono kick" style="color: #178F6B">El desafío</div><h2 class="disp" style="margin: 0; font-size: 44px; font-weight: 600; line-height: 1.08">{{ cp.chTitle }}</h2></div>
+<p style="margin: 0; font-size: 19px; line-height: 1.7; color: #3D4847; align-self: end">{{ cp.ch }}</p>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 70px; padding-bottom: 110px">
+<div class="cs-g">
+<div style="display: flex; flex-direction: column; gap: 18px; align-self: start; position: sticky; top: 110px"><div class="mono kick" style="color: #178F6B">La solución</div><h2 class="disp" style="margin: 0; font-size: 44px; font-weight: 600; line-height: 1.08">{{ cp.soA }} <span class="thin">{{ cp.soB }}</span></h2><p style="margin: 0; color: #3D4847; line-height: 1.65">{{ cp.soLead }}</p></div>
+<div style="border-top: 1px solid #D5DEDB"><sc-for list="{{ cp.feats }}" as="ft" hint-placeholder-count="5"><div class="cs-feat"><span class="cs-ico">{{ ft.n }}</span><div style="display: flex; flex-direction: column; gap: 6px"><h4 class="disp" style="margin: 0; font-size: 20px; font-weight: 600">{{ ft.t }}</h4><p style="margin: 0; color: #3D4847; line-height: 1.6; font-size: 15px">{{ ft.d }}</p></div></div></sc-for></div>
+</div>
+</section>
+
+<sc-if value="{{ cp.hasCtx }}" hint-placeholder-val="{{ false }}">
+<section style="background: #FFFFFF">
+<div class="wrap" style="padding-top: 100px; padding-bottom: 100px; display: flex; flex-direction: column; gap: 48px">
+<div class="cs-g">
+<div style="display: flex; flex-direction: column; gap: 18px"><div class="mono kick" style="color: #178F6B">El contexto</div><h2 class="disp" style="margin: 0; font-size: 44px; font-weight: 600; line-height: 1.08">{{ cp.ctxA }} <span class="thin">{{ cp.ctxB }}</span></h2></div>
+<p style="margin: 0; font-size: 19px; line-height: 1.7; color: #3D4847; align-self: end">{{ cp.ctxText }}</p>
+</div>
+<div class="g4"><sc-for list="{{ cp.phases }}" as="ph" hint-placeholder-count="4"><div style="{{ ph.box }}"><span class="mono" style="{{ ph.tagStyle }}">{{ ph.tag }}</span><h4 class="disp" style="margin: 0; font-size: 22px; font-weight: 600; line-height: 1.2">{{ ph.t }}</h4><p style="{{ ph.pStyle }}">{{ ph.d }}</p></div></sc-for></div>
+</div>
+</section>
+</sc-if>
+
+<section style="background: #081C15; color: #FFFFFF">
+<div class="wrap" style="padding-top: 100px; padding-bottom: 100px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 18px"><div class="mono kick" style="color: #33CC99">El resultado</div><h2 class="disp" style="margin: 0; font-size: 44px; font-weight: 600; line-height: 1.08; max-width: 860px">{{ cp.reTitle }}</h2></div>
+<div class="g4 cs-stats"><sc-for list="{{ cp.stats }}" as="sx" hint-placeholder-count="4"><div class="cs-stat" style="{{ sx.box }}"><span class="disp" style="{{ sx.numStyle }}">{{ sx.n }}</span><span style="color: #A7B3B1; font-size: 14px; line-height: 1.5">{{ sx.t }}</span></div></sc-for></div>
+<sc-if value="{{ cp.hasQuote }}" hint-placeholder-val="{{ true }}"><figure class="cs-fig" style="margin: 0; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 40px; align-items: end; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.12)">
+<blockquote class="disp" style="{{ cp.quoteStyle }}">{{ cp.quote }}<figcaption style="margin-top: 20px; font: 400 15px Rubik, sans-serif; color: #A7B3B1"><strong style="color: #FFFFFF; font-weight: 500">{{ cp.who }}</strong> · {{ cp.role }}</figcaption></blockquote>
+<button type="button" onClick="{{ cp.openVideo }}" class="btn btn-g" style="background: #33CC99; color: #081C15; border: none; border-radius: 999px; padding: 16px 26px; font: 600 15px Rubik, sans-serif; cursor: pointer; white-space: nowrap">▶ Ver testimonio</button>
+</figure></sc-if>
+</div>
+</section>
+
+<section class="wrap" style="padding-top: 90px; padding-bottom: 90px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px"><h2 class="disp" style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.1">{{ cp.ctaTitle }}</h2><sc-if value="{{ cp.hasSource }}" hint-placeholder-val="{{ true }}"><a href="{{ cp.source }}" target="_blank" rel="noopener" class="mono" style="font-size: 11px; color: #178F6B; text-decoration: none">{{ cp.sourceLabel }}</a></sc-if></div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="{{ cp.ctaHref }}" target="{{ cp.ctaTarget }}" onClick="{{ cp.ctaClick }}" class="btn" style="text-decoration: none; border: 1px solid #081C15; color: #081C15; padding: 16px 24px; border-radius: 999px; font-weight: 500">{{ cp.ctaLabel }}</a><a href="#contacto" onClick="{{ closeCase }}" class="btn btn-g" style="text-decoration: none; background: #33CC99; color: #081C15; padding: 16px 26px; border-radius: 999px; font-weight: 600">Hablemos</a></div>
+</section>
+</div>
+</sc-if></template>
+<template id="tpl-lightbox"><sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+<div class="lb" role="dialog" aria-modal="true" aria-label="Video" onClick="{{ closeVideo }}">
+<div class="lb-box" onClick="{{ stop }}">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 14px; color: #FFFFFF">
+<span style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 10px; color: #33CC99">{{ lbVid.client }}</span><span class="disp" style="font-size: 22px; font-weight: 600">{{ lbVid.title }}</span></span>
+<button type="button" onClick="{{ closeVideo }}" aria-label="Cerrar video" style="width: 48px; height: 48px; flex: none; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.06); color: #FFFFFF; font-size: 22px; cursor: pointer">×</button>
+</div>
+<div style="position: relative; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #000000">
+<sc-if value="{{ lbVid.hasEmbed }}" hint-placeholder-val="{{ true }}"><iframe src="{{ lbVid.embed }}" title="{{ lbVid.title }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><a href="{{ lbVid.url }}" target="_blank" rel="noopener" style="position:absolute;right:16px;bottom:-40px;color:#C9D2D0;font:500 13px Rubik,sans-serif;text-decoration:underline">¿No se reproduce? Abrir en YouTube ↗</a></sc-if>
+<sc-if value="{{ lbVid.noEmbed }}" hint-placeholder-val="{{ false }}"><div class="ph" style="border-radius: 20px"><span>Video a completar</span></div></sc-if>
+</div>
+</div>
+</div>
+</div>
+</sc-if></template>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
