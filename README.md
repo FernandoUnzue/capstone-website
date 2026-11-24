@@ -1,12 +1,12 @@
 # Capstone · Sitio web
 
-Sitio en **React 18 + Vite**, prerenderizado a HTML estático (SSG) para SEO e indexación por buscadores y asistentes de IA. Formulario de contacto con función serverless de Vercel.
+Sitio en **React 18 + Vite**, prerenderizado a HTML estático (SSG) para SEO e indexación por buscadores y asistentes de IA. Formulario de contacto con función serverless de Vercel que envía por SMTP.
 
 ## Comandos
 
 ```sh
 npm install
-npm run dev       # http://localhost:5173 (incluye /api/contact; sin RESEND_API_KEY imprime el mensaje en consola)
+npm run dev       # http://localhost:5173 (incluye /api/contact; sin SMTP_PASS imprime el mensaje en consola)
 npm run build     # build cliente + SSR + prerender → dist/
 npm run preview   # sirve dist/ (sin /api)
 ```
@@ -24,7 +24,7 @@ src/
   css.js                   helper s("css en línea") → objeto de estilos React
   styles.css               estilos globales
   components/              una sección por componente + ContactForm, CaseStudy, Lightbox
-api/contact.js             función serverless: valida, antispam y envía con Resend
+api/contact.js             función serverless: valida, antispam y envía por SMTP (domain.com)
 scripts/prerender.mjs      genera las páginas HTML, sitemap.xml, robots.txt, llms.txt, llms-full.txt, 404.html
 public/assets/             imágenes y video
 ```
@@ -43,19 +43,21 @@ Para agregar un caso: sumarlo en `src/data.js` (`CASES` y `CASE_PAGES`) y en `sr
 
 ## Formulario de contacto
 
-`POST /api/contact` valida los datos, descarta bots (campo trampa) y limita envíos por IP, y manda el mail con [Resend](https://resend.com) con `reply-to` al remitente.
+`POST /api/contact` valida los datos, descarta bots (campo trampa), limita envíos por IP y manda el mail por SMTP desde `hi@capstoneside.com` (servidor de domain.com), con `reply-to` a quien completó el formulario.
 
 Variables de entorno (ver `.env.example`):
 
 | Variable | Uso |
 |---|---|
-| `RESEND_API_KEY` | Obligatoria en producción. |
+| `SMTP_PASS` | Contraseña de la casilla que envía. Obligatoria en producción. |
+| `SMTP_USER` | Usuario SMTP (default `hi@capstoneside.com`). |
+| `SMTP_HOST` / `SMTP_PORT` | Servidor y puerto (default `smtp.domain.com`, `465` SSL; con `587` usa STARTTLS). |
 | `CONTACT_TO` | Destinatarios, separados por coma (default `hi@capstoneside.com`). |
-| `CONTACT_FROM` | Remitente de un dominio verificado en Resend (default `Capstone Web <web@capstoneside.com>`). |
+| `CONTACT_FROM` | Remitente (default `Capstone Web <SMTP_USER>`). |
 | `VITE_SITE_URL` | Dominio canónico (default `https://www.capstoneside.com`). |
 
 ## Deploy (Vercel)
 
-Importar el repo: `vercel.json` ya define el build (`npm run build`), la salida (`dist`), URLs limpias y cabeceras de caché. Cargar las variables de entorno y verificar el dominio en Resend.
+Importar el repo: `vercel.json` ya define el build (`npm run build`), la salida (`dist`), URLs limpias y cabeceras de caché. Cargar las variables de entorno (al menos `SMTP_PASS`).
 
 Después del primer deploy: dar de alta el sitio en Google Search Console y Bing Webmaster Tools y enviar `https://<dominio>/sitemap.xml`.

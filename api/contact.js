@@ -1,11 +1,16 @@
-// Función serverless (Vercel) que recibe el formulario de contacto y lo envía por email con Resend.
+// Función serverless (Vercel) que recibe el formulario de contacto y lo envía por SMTP (domain.com).
 //
 // Variables de entorno:
-//   RESEND_API_KEY  (obligatoria en producción) clave de https://resend.com
-//   CONTACT_TO      destinatario(s), separados por coma. Por defecto: hi@capstoneside.com
-//   CONTACT_FROM    remitente de un dominio verificado en Resend. Por defecto: Capstone Web <web@capstoneside.com>
+//   SMTP_PASS     (obligatoria en producción) contraseña de la casilla que envía
+//   SMTP_USER     usuario SMTP. Por defecto: hi@capstoneside.com
+//   SMTP_HOST     servidor SMTP. Por defecto: smtp.domain.com
+//   SMTP_PORT     puerto. Por defecto: 465 (SSL). Con 587 se usa STARTTLS.
+//   CONTACT_TO    destinatario(s), separados por coma. Por defecto: hi@capstoneside.com
+//   CONTACT_FROM  remitente. Por defecto: Capstone Web <SMTP_USER>
 //
-// Sin RESEND_API_KEY y fuera de producción, el mensaje se imprime en consola (modo desarrollo).
+// Sin SMTP_PASS y fuera de producción, el mensaje se imprime en consola (modo desarrollo).
+
+import nodemailer from 'nodemailer';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const INTERESTS = ['Proyecto a medida', 'Enerflux', 'FidelyFlux', 'Otro'];
@@ -85,36 +90,42 @@ export default async function handler(req, res) {
 </table>
 <p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap">${escapeHtml(message)}</p>`;
 
-  const key = process.env.RESEND_API_KEY;
-  if (!key) {
+  const pass = process.env.SMTP_PASS;
+  if (!pass) {
     if (process.env.VERCEL_ENV === 'production' || process.env.NODE_ENV === 'production') {
-      console.error('[contact] Falta RESEND_API_KEY');
+      console.error('[contact] Falta SMTP_PASS');
       return send(res, 500, { ok: false, error: 'El formulario no está configurado.' });
     }
-    console.log('[contact] (modo desarrollo, sin RESEND_API_KEY)\n' + text);
+    console.log('[contact] (modo desarrollo, sin SMTP_PASS)\n' + text);
     return send(res, 200, { ok: true, dev: true });
   }
 
+  const user = process.env.SMTP_USER || 'hi@capstoneside.com';
+  const port = Number(process.env.SMTP_PORT || 465);
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.domain.com',
+    port,
+    secure: port === 465, // 465: SSL directo; 587: STARTTLS
+    requireTLS: port !== 465,
+    auth: { user, pass },
+    connectionTimeout: 10_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 15_000,
+  });
+
   try {
-    const r = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: process.env.CONTACT_FROM || 'Capstone Web <web@capstoneside.com>',
-        to: (process.env.CONTACT_TO || 'hi@capstoneside.com').split(',').map((s) => s.trim()).filter(Boolean),
-        reply_to: email,
-        subject,
-        text,
-        html,
-      }),
+    const info = await transporter.sendMail({
+      from: process.env.CONTACT_FROM || `Capstone Web <${user}>`,
+      to: (process.env.CONTACT_TO || 'hi@capstoneside.com').split(',').map((s) => s.trim()).filter(Boolean),
+      replyTo: `${name.replace(/[<>"\r\n]/g, '')} <${email}>`,
+      subject,
+      text,
+      html,
     });
-    if (!r.ok) {
-      console.error('[contact] Resend respondió', r.status, await r.text());
-      return send(res, 502, { ok: false, error: 'No pudimos enviar el mensaje.' });
-    }
+    console.log('[contact] Enviado', info.messageId, info.response);
     return send(res, 200, { ok: true });
   } catch (err) {
-    console.error('[contact] Error al enviar', err);
+    console.error('[contact] Error SMTP', err.code || '', err.responseCode || '', err.response || err.message);
     return send(res, 502, { ok: false, error: 'No pudimos enviar el mensaje.' });
   }
 }
